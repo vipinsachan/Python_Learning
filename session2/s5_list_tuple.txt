@@ -1,0 +1,321 @@
+
+List
+Mutable => add update and delete the elements
+Ordered => indexing and slicing
+Heterogeneous
+In [4]:
+l = [10,20,30,"Python",[100,200,300]]
+print(l)
+print(l[0])
+print(l[-1])
+print(l[100])
+[10, 20, 30, 'Python', [100, 200, 300]]
+10
+[100, 200, 300]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-4-2784c0b9b835> in <module>()
+      3 print(l[0])
+      4 print(l[-1])
+----> 5 print(l[100])
+
+IndexError: list index out of range
+In [16]:
+l = [10,20,30,"Python",[100,200,[1000,2000,3000,4000],300]]
+print(l[-1][2][1])
+print(l[-1][2][0:3:2])
+print(l[1:])
+print(l[::-1])
+2000
+[1000, 3000]
+[20, 30, 'Python', [100, 200, [1000, 2000, 3000, 4000], 300]]
+[[100, 200, [1000, 2000, 3000, 4000], 300], 'Python', 30, 20, 10]
+In [ ]:
+Add:
+    append 
+    extend
+    insert
+In [35]:
+l = [10,20,30,40,50]
+# l.append("Python")
+# print(l)
+
+# l.extend([10,20,30])
+# print(l)
+
+l.insert(200,[200,400,600])
+print(l)
+[10, 20, 30, 40, 50, [200, 400, 600]]
+In [38]:
+l = [[1,2,3],[4,5,6],[7,8,9]]
+
+l2 = [1,2,3,4,5,6,7,8,9]
+
+l2 = [[1,4,7],[2,5,8],[3,6,9]]
+None
+In [41]:
+l = [[1,2,3],[4,5,6],[7,8,9]]
+l2 =[]
+for value in l:
+    l2.extend(value)
+print(l2)
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+In [ ]:
+1 2 3 10 1 
+4 5 6 11 4
+7 8 9 12  7
+
+1 2 3  2 
+4 5 6  5
+7 8 9  8
+
+1 2 3  3  
+4 5 6  6
+7 8 9  9
+
+1 2 3 10 10 
+4 5 6 11 11
+7 8 9 12 12
+In [47]:
+l = [[1,2,3],[4,5,6],[7,8,9]]
+l2 = []
+for index in range(len(l[0])):
+    l4 = []
+    for value in l:
+        l4.append(value[index])
+    l2.append(l4)
+print(l2)
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+In [58]:
+l = [[1,2,3],[4,5,6],[7,8,9]]
+l2 = []
+
+for index in range(len(l[0])):
+    l4 = []
+    for value in l:
+#         print(value[index])
+        l4.append(value[index])
+    print(l4)
+    l2.append(l4)
+print(l2)
+[1, 4, 7]
+[2, 5, 8]
+[3, 6, 9]
+[[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+In [ ]:
+l1 = [[1,2,3],[4,5,6][7,8,9]]
+l2 = [[10,20,30],[40,50,60][70,80,90]]
+
+l3 = [[11,22,33],[44,55,66],[77,88,99]]
+In [ ]:
+range(10) 0 1 2 .... 9
+range(10,50) 10 11 12...... 49
+range(10,50,5) 10 15 20 25 ...... 45
+In [ ]:
+1 2 3       10 20 30 
+4 5 6       40 50 60
+7 8 9       70 80 90
+
+0 0 1 2
+
+1 0 1 2
+
+2 0 1 2
+In [68]:
+l1 = [[1,2,3],[4,5,6],[7,8,9]]
+l2 = [[10,20,30],[40,50,60],[70,80,90]]
+l4 = []
+for row in range(len(l1)):
+    l5 = []
+    for col in range(len(l[0])):        
+        l5.append(l1[row][col]+ l2[row][col])
+    l4.append(l5)
+print(l4)
+[[11, 22, 33], [44, 55, 66], [77, 88, 99]]
+In [ ]:
+l4 = []
+row : 0 1 2 =>3
+col : 0 1 2 => 3
+
+row  0
+col  0
+
+1,10
+l5 = [11]
+2 20
+l5 = [11,22]
+l5 = [11,22,33]
+
+l4 = [[11,22,33]]
+In [ ]:
+Add:
+    append 
+    extend 
+    insert
+In [71]:
+l = [100,200,300,400,500]
+l[2] = 4000
+print(l)
+[100, 200, 4000, 400, 500]
+In [ ]:
+Delete :
+    pop => remove on basis of index, if not specified remove last elemnet and return the element which is removed
+    remove => remove on basis of value , will not retun anything 
+    clear => remove all the elements ,and give empty list 
+    del => del ref of list
+In [83]:
+l = [100,200,300,200,200,400,500]
+r = l.pop()
+print(l,r)
+
+l.remove(200)
+print(l)
+
+l.clear()
+print(l)
+l.append(1)
+print(l)
+
+del l
+print(l)
+[100, 200, 300, 200, 200, 400] 500
+[100, 300, 200, 200, 400]
+[]
+[1]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-83-df8ed61e3b1c> in <module>()
+     12 
+     13 del l
+---> 14 print(l)
+
+NameError: name 'l' is not defined
+In [103]:
+l1 = [10,20,30]
+l2 = l1.copy()
+
+l1.append(40)
+print(l2)
+print(id(l1),id(l2))
+[10, 20, 30]
+2595959195208 2595959832840
+In [ ]:
+num1 =100
+num2 = num1
+In [107]:
+l1 = [10,20,30,40,50,60]
+l2 = [1,2,3,4,5]
+l1.extend(l2)
+print(l1)
+print(l3)
+print(l2 * 2)
+[10, 20, 30, 40, 50, 60, 1, 2, 3, 4, 5]
+[10, 20, 30, 40, 50, 60, 1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+In [109]:
+l1 = [1,23,41,52,78,41,2,5,56]
+l1.sort(reverse = True)
+print(l1)
+[78, 56, 52, 41, 41, 23, 5, 2, 1]
+In [114]:
+l1 = [10,20,45,74,25,41,36,45,10,74,20]
+l2 = [1,2,25,36,45,10,10,20]
+l4 = []
+l3 = l1 +l2
+print(l3)
+l3.sort()
+print(l3)
+
+for value in l3:
+    if value not in l4:
+        l4.append(value)
+print(l4)
+    
+
+# for index,value in enumerate(l3):
+#     if l3[index] == l3[index+1]:
+#         l3.remove(l3[index])
+        
+# print(l3)
+[10, 20, 45, 74, 25, 41, 36, 45, 10, 74, 20, 1, 2, 25, 36, 45, 10, 10, 20]
+[1, 2, 10, 10, 10, 10, 20, 20, 20, 25, 25, 36, 36, 41, 45, 45, 45, 74, 74]
+[1, 2, 10, 20, 25, 36, 41, 45, 74]
+In [117]:
+l = [10,20,30,40]
+for index,value in enumerate(l):
+    print(index,value)
+0 10
+1 20
+2 30
+3 40
+In [120]:
+l = [100,200,100,200,300,100]
+print(l.index(200))
+print(l.count(200))
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-120-6610b0135931> in <module>()
+      1 l = [100,200,100,200,300,100]
+----> 2 print(l.index(2000))
+      3 print(l.count(200))
+
+ValueError: 2000 is not in list
+In [ ]:
+Add :
+    append("Python") => "Python" 
+    extend("Python") =>p,y,t,h,o,n
+    insert (1000,[200,400,500]) => 
+
+Update
+    l[index] =new_value 
+    
+Delete :
+    l = [1,2,3,4,5]
+    pop l.pop(4) => 5
+    remove l.remove(4) => 
+    clear 
+    del
+In [ ]:
+Tuple :
+    t = (10,20,30,40)
+    - immutable => no add update del
+    - ordered => indexing and slicing
+In [121]:
+t = (10,20,30,40,50)
+print(t)
+(10, 20, 30, 40, 50)
+In [123]:
+print(dir(list))
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+In [125]:
+t = (10,20,30,40)
+t[1] = 100
+print(t)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-125-f8a05cc18582> in <module>()
+      1 t = (10,20,30,40)
+----> 2 t[1] = 100
+      3 print(t)
+
+TypeError: 'tuple' object does not support item assignment
+In [128]:
+l = [10,20,30]
+
+for index,value in enumerate(l):
+    print(index,value)
+0 10
+1 20
+2 30
+In [138]:
+x= (100,200)
+In [143]:
+x = 100,200,200,300,400
+print(x)
+print(x.index(200))
+print(x.count(200))
+print(x[1:])
+(100, 200, 200, 300, 400)
+1
+2
+(200, 200, 300, 400)
