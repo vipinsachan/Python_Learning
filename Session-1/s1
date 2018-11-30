@@ -1,0 +1,651 @@
+In [1]:
+print("Hi")
+Hi
+In [3]:
+print("Hi python")
+Hi python
+In [ ]:
+
+Different Modes of execution :
+Interactive mode - cmd python >>> quit()
+Scripting mode - .py python filename.py
+IDE - Jupyter ctrl + enter
+In [5]:
+print("Hi")
+Hi
+Datatypes:
+int 10 15 25 - immutable
+float 10.255 865.555555 immutable
+str 'python' "java" """ Sample string """ immutable
+list [10,20,30,"Python",[100,200,300,400]] mutable
+tuple (10,20,30,40,"Python",[10,20,30]) immutable
+dict {"name":"ABC","email":"abc@gmail.com"} mutable
+set {10,20,30,45,50} mutable
+bool True False
+In [ ]:
+True False None
+In [9]:
+num1 = 100
+print(type(num1))
+print(num1)
+<class 'int'>
+100
+In [10]:
+num1 = "Python"
+print(num1)
+Python
+In [12]:
+num1 = 100
+print(num1,id(num1))
+num1 = 150 
+print(num1,id(num1))
+100 1475311776
+150 1475313376
+In [ ]:
+num1 = 100
+
+100  
+150 num1
+In [13]:
+num1 = 100
+num2 = 100
+print(id(num1),id(num2))
+1475311776 1475311776
+In [16]:
+num1 = 256
+num2 = 256
+print(id(num1),id(num2))
+1475316768 1475316768
+In [ ]:
+Object Intering :
+    0 - 256 => predefined
+In [ ]:
+num1 = 0
+In [20]:
+s = ''' "Python" 
+sample string'''
+print(s)
+ "Python" 
+sample string
+In [23]:
+l = [10,20,30,40]
+print(id(l))
+l.append(50)
+print(l)
+print(id(l))
+2414749522824
+[10, 20, 30, 40, 50]
+2414749522824
+In [24]:
+num1 = 100
+print(id(num1))
+num1 = 200
+print(id(num1))
+1475311776
+1475314976
+In [ ]:
+Mutable => app,update and delete at same memory location 
+Immutable => not support add,update and delete
+In [25]:
+num1 = num2 = 100
+print(num1,num2)
+100 100
+In [29]:
+num1,num2 = 100,200
+print(num1,num2)
+num1,num2 = num2,num1
+print(num1,num2)
+1475311776 1475314976
+100 200
+200 100
+1475311776
+In [ ]:
+100 num2
+200 num1
+In [30]:
+help(str)
+Help on class str in module builtins:
+
+class str(object)
+ |  str(object='') -> str
+ |  str(bytes_or_buffer[, encoding[, errors]]) -> str
+ |  
+ |  Create a new string object from the given object. If encoding or
+ |  errors is specified, then the object must expose a data buffer
+ |  that will be decoded using the given encoding and error handler.
+ |  Otherwise, returns the result of object.__str__() (if defined)
+ |  or repr(object).
+ |  encoding defaults to sys.getdefaultencoding().
+ |  errors defaults to 'strict'.
+ |  
+ |  Methods defined here:
+ |  
+ |  __add__(self, value, /)
+ |      Return self+value.
+ |  
+ |  __contains__(self, key, /)
+ |      Return key in self.
+ |  
+ |  __eq__(self, value, /)
+ |      Return self==value.
+ |  
+ |  __format__(...)
+ |      S.__format__(format_spec) -> str
+ |      
+ |      Return a formatted version of S as described by format_spec.
+ |  
+ |  __ge__(self, value, /)
+ |      Return self>=value.
+ |  
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |  
+ |  __getitem__(self, key, /)
+ |      Return self[key].
+ |  
+ |  __getnewargs__(...)
+ |  
+ |  __gt__(self, value, /)
+ |      Return self>value.
+ |  
+ |  __hash__(self, /)
+ |      Return hash(self).
+ |  
+ |  __iter__(self, /)
+ |      Implement iter(self).
+ |  
+ |  __le__(self, value, /)
+ |      Return self<=value.
+ |  
+ |  __len__(self, /)
+ |      Return len(self).
+ |  
+ |  __lt__(self, value, /)
+ |      Return self<value.
+ |  
+ |  __mod__(self, value, /)
+ |      Return self%value.
+ |  
+ |  __mul__(self, value, /)
+ |      Return self*value.n
+ |  
+ |  __ne__(self, value, /)
+ |      Return self!=value.
+ |  
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |  
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |  
+ |  __rmod__(self, value, /)
+ |      Return value%self.
+ |  
+ |  __rmul__(self, value, /)
+ |      Return self*value.
+ |  
+ |  __sizeof__(...)
+ |      S.__sizeof__() -> size of S in memory, in bytes
+ |  
+ |  __str__(self, /)
+ |      Return str(self).
+ |  
+ |  capitalize(...)
+ |      S.capitalize() -> str
+ |      
+ |      Return a capitalized version of S, i.e. make the first character
+ |      have upper case and the rest lower case.
+ |  
+ |  casefold(...)
+ |      S.casefold() -> str
+ |      
+ |      Return a version of S suitable for caseless comparisons.
+ |  
+ |  center(...)
+ |      S.center(width[, fillchar]) -> str
+ |      
+ |      Return S centered in a string of length width. Padding is
+ |      done using the specified fill character (default is a space)
+ |  
+ |  count(...)
+ |      S.count(sub[, start[, end]]) -> int
+ |      
+ |      Return the number of non-overlapping occurrences of substring sub in
+ |      string S[start:end].  Optional arguments start and end are
+ |      interpreted as in slice notation.
+ |  
+ |  encode(...)
+ |      S.encode(encoding='utf-8', errors='strict') -> bytes
+ |      
+ |      Encode S using the codec registered for encoding. Default encoding
+ |      is 'utf-8'. errors may be given to set a different error
+ |      handling scheme. Default is 'strict' meaning that encoding errors raise
+ |      a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+ |      'xmlcharrefreplace' as well as any other name registered with
+ |      codecs.register_error that can handle UnicodeEncodeErrors.
+ |  
+ |  endswith(...)
+ |      S.endswith(suffix[, start[, end]]) -> bool
+ |      
+ |      Return True if S ends with the specified suffix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      suffix can also be a tuple of strings to try.
+ |  
+ |  expandtabs(...)
+ |      S.expandtabs(tabsize=8) -> str
+ |      
+ |      Return a copy of S where all tab characters are expanded using spaces.
+ |      If tabsize is not given, a tab size of 8 characters is assumed.
+ |  
+ |  find(...)
+ |      S.find(sub[, start[, end]]) -> int
+ |      
+ |      Return the lowest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  format(...)
+ |      S.format(*args, **kwargs) -> str
+ |      
+ |      Return a formatted version of S, using substitutions from args and kwargs.
+ |      The substitutions are identified by braces ('{' and '}').
+ |  
+ |  format_map(...)
+ |      S.format_map(mapping) -> str
+ |      
+ |      Return a formatted version of S, using substitutions from mapping.
+ |      The substitutions are identified by braces ('{' and '}').
+ |  
+ |  index(...)
+ |      S.index(sub[, start[, end]]) -> int
+ |      
+ |      Return the lowest index in S where substring sub is found, 
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Raises ValueError when the substring is not found.
+ |  
+ |  isalnum(...)
+ |      S.isalnum() -> bool
+ |      
+ |      Return True if all characters in S are alphanumeric
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isalpha(...)
+ |      S.isalpha() -> bool
+ |      
+ |      Return True if all characters in S are alphabetic
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isdecimal(...)
+ |      S.isdecimal() -> bool
+ |      
+ |      Return True if there are only decimal characters in S,
+ |      False otherwise.
+ |  
+ |  isdigit(...)
+ |      S.isdigit() -> bool
+ |      
+ |      Return True if all characters in S are digits
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  isidentifier(...)
+ |      S.isidentifier() -> bool
+ |      
+ |      Return True if S is a valid identifier according
+ |      to the language definition.
+ |      
+ |      Use keyword.iskeyword() to test for reserved identifiers
+ |      such as "def" and "class".
+ |  
+ |  islower(...)
+ |      S.islower() -> bool
+ |      
+ |      Return True if all cased characters in S are lowercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  isnumeric(...)
+ |      S.isnumeric() -> bool
+ |      
+ |      Return True if there are only numeric characters in S,
+ |      False otherwise.
+ |  
+ |  isprintable(...)
+ |      S.isprintable() -> bool
+ |      
+ |      Return True if all characters in S are considered
+ |      printable in repr() or S is empty, False otherwise.
+ |  
+ |  isspace(...)
+ |      S.isspace() -> bool
+ |      
+ |      Return True if all characters in S are whitespace
+ |      and there is at least one character in S, False otherwise.
+ |  
+ |  istitle(...)
+ |      S.istitle() -> bool
+ |      
+ |      Return True if S is a titlecased string and there is at least one
+ |      character in S, i.e. upper- and titlecase characters may only
+ |      follow uncased characters and lowercase characters only cased ones.
+ |      Return False otherwise.
+ |  
+ |  isupper(...)
+ |      S.isupper() -> bool
+ |      
+ |      Return True if all cased characters in S are uppercase and there is
+ |      at least one cased character in S, False otherwise.
+ |  
+ |  join(...)
+ |      S.join(iterable) -> str
+ |      
+ |      Return a string which is the concatenation of the strings in the
+ |      iterable.  The separator between elements is S.
+ |  
+ |  ljust(...)
+ |      S.ljust(width[, fillchar]) -> str
+ |      
+ |      Return S left-justified in a Unicode string of length width. Padding is
+ |      done using the specified fill character (default is a space).
+ |  
+ |  lower(...)
+ |      S.lower() -> str
+ |      
+ |      Return a copy of the string S converted to lowercase.
+ |  
+ |  lstrip(...)
+ |      S.lstrip([chars]) -> str
+ |      
+ |      Return a copy of the string S with leading whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |  
+ |  partition(...)
+ |      S.partition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, and return the part before it,
+ |      the separator itself, and the part after it.  If the separator is not
+ |      found, return S and two empty strings.
+ |  
+ |  replace(...)
+ |      S.replace(old, new[, count]) -> str
+ |      
+ |      Return a copy of S with all occurrences of substring
+ |      old replaced by new.  If the optional argument count is
+ |      given, only the first count occurrences are replaced.
+ |  
+ |  rfind(...)
+ |      S.rfind(sub[, start[, end]]) -> int
+ |      
+ |      Return the highest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Return -1 on failure.
+ |  
+ |  rindex(...)
+ |      S.rindex(sub[, start[, end]]) -> int
+ |      
+ |      Return the highest index in S where substring sub is found,
+ |      such that sub is contained within S[start:end].  Optional
+ |      arguments start and end are interpreted as in slice notation.
+ |      
+ |      Raises ValueError when the substring is not found.
+ |  
+ |  rjust(...)
+ |      S.rjust(width[, fillchar]) -> str
+ |      
+ |      Return S right-justified in a string of length width. Padding is
+ |      done using the specified fill character (default is a space).
+ |  
+ |  rpartition(...)
+ |      S.rpartition(sep) -> (head, sep, tail)
+ |      
+ |      Search for the separator sep in S, starting at the end of S, and return
+ |      the part before it, the separator itself, and the part after it.  If the
+ |      separator is not found, return two empty strings and S.
+ |  
+ |  rsplit(...)
+ |      S.rsplit(sep=None, maxsplit=-1) -> list of strings
+ |      
+ |      Return a list of the words in S, using sep as the
+ |      delimiter string, starting at the end of the string and
+ |      working to the front.  If maxsplit is given, at most maxsplit
+ |      splits are done. If sep is not specified, any whitespace string
+ |      is a separator.
+ |  
+ |  rstrip(...)
+ |      S.rstrip([chars]) -> str
+ |      
+ |      Return a copy of the string S with trailing whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |  
+ |  split(...)
+ |      S.split(sep=None, maxsplit=-1) -> list of strings
+ |      
+ |      Return a list of the words in S, using sep as the
+ |      delimiter string.  If maxsplit is given, at most maxsplit
+ |      splits are done. If sep is not specified or is None, any
+ |      whitespace string is a separator and empty strings are
+ |      removed from the result.
+ |  
+ |  splitlines(...)
+ |      S.splitlines([keepends]) -> list of strings
+ |      
+ |      Return a list of the lines in S, breaking at line boundaries.
+ |      Line breaks are not included in the resulting list unless keepends
+ |      is given and true.
+ |  
+ |  startswith(...)
+ |      S.startswith(prefix[, start[, end]]) -> bool
+ |      
+ |      Return True if S starts with the specified prefix, False otherwise.
+ |      With optional start, test S beginning at that position.
+ |      With optional end, stop comparing S at that position.
+ |      prefix can also be a tuple of strings to try.
+ |  
+ |  strip(...)
+ |      S.strip([chars]) -> str
+ |      
+ |      Return a copy of the string S with leading and trailing
+ |      whitespace removed.
+ |      If chars is given and not None, remove characters in chars instead.
+ |  
+ |  swapcase(...)
+ |      S.swapcase() -> str
+ |      
+ |      Return a copy of S with uppercase characters converted to lowercase
+ |      and vice versa.
+ |  
+ |  title(...)
+ |      S.title() -> str
+ |      
+ |      Return a titlecased version of S, i.e. words start with title case
+ |      characters, all remaining cased characters have lower case.
+ |  
+ |  translate(...)
+ |      S.translate(table) -> str
+ |      
+ |      Return a copy of the string S in which each character has been mapped
+ |      through the given translation table. The table must implement
+ |      lookup/indexing via __getitem__, for instance a dictionary or list,
+ |      mapping Unicode ordinals to Unicode ordinals, strings, or None. If
+ |      this operation raises LookupError, the character is left untouched.
+ |      Characters mapped to None are deleted.
+ |  
+ |  upper(...)
+ |      S.upper() -> str
+ |      
+ |      Return a copy of S converted to uppercase.
+ |  
+ |  zfill(...)
+ |      S.zfill(width) -> str
+ |      
+ |      Pad a numeric string S with zeros on the left, to fill a field
+ |      of the specified width. The string S is never truncated.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |  
+ |  maketrans(x, y=None, z=None, /)
+ |      Return a translation table usable for str.translate().
+ |      
+ |      If there is only one argument, it must be a dictionary mapping Unicode
+ |      ordinals (integers) or characters to Unicode ordinals, strings or None.
+ |      Character keys will be then converted to ordinals.
+ |      If there are two arguments, they must be strings of equal length, and
+ |      in the resulting dictionary, each character in x will be mapped to the
+ |      character at the same position in y. If there is a third argument, it
+ |      must be a string, whose characters will be mapped to None in the result.
+
+Operators :
+Arithmetic operators +,-,*,/,//= floor division,**,%
+Comparison Operators ==,!=,<,>,<=,>= => True or False
+identity operator is is not
+membership operator in not in
+logical operator and or not
+Assignment operators =,+=,-=,*=,/=
+In [35]:
+print(10 / 3)
+print(10 // 3)
+print(10 % 3)
+print(25 ** 0.5)
+3.3333333333333335
+3
+1
+5.0
+In [36]:
+l1 = [10,20,30]
+l2 = [10,20,30]
+print(l1 == l2)
+True
+In [42]:
+num1 = 100
+num2 = 100
+print(num1 == num2)
+print(num1 is num2)
+
+l1 = [10,20,30]
+l2 = [10,20,30]
+print(id(l1),id(l2))
+print(l1 == l2)
+print(l1 is not l2)
+True
+True
+2414759960520 2414760281544
+True
+True
+In [ ]:
+num1 = 200 
+200 num1
+num2 = 200
+
+200 num1 ,num2
+In [53]:
+l = [10,20,30,40,50,60,70,80]
+print(600 in l)
+# print('60' in '606')
+d = {1:1,2:4,3:9,4:16}
+print(16 not in d)
+False
+True
+In [54]:
+print(10 == 10 and 10 != 7)
+True
+In [58]:
+num1 = 100
+print(num1)
+num1 = num1 + 1
+print(num1)
+num1 /=1
+print(num1)
+100
+101
+101.0
+In [ ]:
+if condition:
+    statements
+elif condition:
+    statements
+else:
+    statement
+
+is is not identity 
+in not in memebrship
+logiacal 
+comparison
+In [68]:
+num1 = 500
+num2 = 300
+
+if num1 > num2:
+    print("num1 is greater")
+    if num1 % 5 == 0:
+        print("divisible by 5")
+    else:
+        print("not div by 5")
+elif num2 > num1:
+    print("num2 is greater")
+else:
+    print("both are equal")
+num1 is greater
+divisible by 5
+In [71]:
+char ="a"
+if char in 'aeiou':
+    print("vowel")
+else:
+    print("consonent")
+vowel
+In [ ]:
+PEP 8 convernsions
+In [78]:
+if None:
+    print("Hi")
+else:
+    print("Java")
+Java
+In [79]:
+num1 = 45
+if num1 % 2 ==0:
+    print("even")
+else:
+    num1 +=1
+    print(num1)
+46
+In [ ]:
+3 modes of 
+ 1 interactive cmd python >>> quit()   
+ 2 scripting  .py python filename.py
+ 3 ide ctrl + enter
+In [ ]:
+num1,num2 = num2,num1
+In [ ]:
+type()
+id()
+In [ ]:
+list 
+dict 
+set
+In [ ]:
+int 
+float
+tuple
+bool
+In [ ]:
+== value  is mem loc
+In [ ]:
+l = [10,20,30]
+In [ ]:
+in collection 
+   dict keys
+In [ ]:
+is is not , in ,not in , com ,logical
+In [ ]:
+if [condition]:
+    stat
+elif [condition]
+    stst
+else:

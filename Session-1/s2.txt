@@ -1,0 +1,341 @@
+In [ ]:
+> For 
+> While
+In [ ]:
+> -  For Sysntax
+
+for [userdefined variable] in [iterable datatype]:
+    statements
+print("Hi")
+In [3]:
+l = [10,20,30,40,50,60]
+sum = 0
+for value in l:
+    sum = sum + value
+print(sum)
+210
+In [ ]:
+range(10): 0 1 2 3 4 5...... 9
+range(10,50) 10 11 12 13...... 49  
+range(10,50,5) 10 15 20 25 30.....45
+In [5]:
+sum = 0
+for value in range(1,101):
+    sum+= value
+print(sum)
+5050
+In [ ]:
+num = 6 
+1 + 2  + 3 = 6==num
+1...5
+6 % 1 = 0
+6 %2 =0
+
+6 %5 = 0
+In [9]:
+num = 30
+sum = 0
+for value in range(1,num):
+    if num % value == 0:
+        sum = sum + value
+        
+if sum == num:
+    print("Perfect number")
+else:
+    print("Not a perfect number")
+Not a perfect number
+In [12]:
+print(ord('a'),ord('z'))
+print(chr(97))
+97 122
+a
+In [16]:
+start ='a'
+end = 'm'
+for value in range(ord(start),ord(end)+1):
+    print(chr(value))
+a
+b
+c
+d
+e
+f
+g
+h
+i
+j
+k
+l
+m
+In [22]:
+l = [10,20,30,40,50]
+s = "Python sample string"
+t = (10,20,30,40,50,60)
+d = {1:1,2:4,3:9,4:16,5:25}
+for value in d:
+    print(value)
+1
+2
+3
+4
+5
+In [38]:
+l = [100,200,300,400,500,600,700]
+key = 500
+
+for value in l:
+    if value == key:
+        print("Element present")
+        break
+else:
+    print("Element not present")
+Element present
+In [41]:
+l = [100,200,300,400,500,600,700]
+key = 500
+
+for index,value in enumerate(l):
+    if value == key:
+        print("Element present",index)
+        break
+else:
+    print("Element not present")
+Element present 4
+In [43]:
+l = [10,20,30,40,50,60]
+for index,value in enumerate(l):
+    print(index,value)
+    
+help(print)
+0 10
+1 20
+2 30
+3 40
+4 50
+5 60
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+
+In [ ]:
+break 
+continue
+In [42]:
+for val1 in range(1,5):
+    for val2 in range(100,105):
+        print(val1,val2)
+1 100
+1 101
+1 102
+1 103
+1 104
+2 100
+2 101
+2 102
+2 103
+2 104
+3 100
+3 101
+3 102
+3 103
+3 104
+4 100
+4 101
+4 102
+4 103
+4 104
+In [48]:
+print(10,20,sep = ",",end =" ")
+print("hi",end =" ")
+print("Python")
+help(print)
+10,20 hi Python
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+
+In [ ]:
+1        2      3    4    5
+2        4 
+3        6
+4        8
+5
+6
+7
+8
+9
+10
+In [ ]:
+sudp apt-get install python3
+In [ ]:
+1   2   3  4    5
+1     1   2   3  4    5
+2
+3
+4
+5
+6
+7
+8
+9
+10
+In [56]:
+for val1 in range(1,11):
+    print("\n")
+    for val2 in range(1,6):
+        print(val1 * val2,end ="\t")
+
+1	2	3	4	5	
+
+2	4	6	8	10	
+
+3	6	9	12	15	
+
+4	8	12	16	20	
+
+5	10	15	20	25	
+
+6	12	18	24	30	
+
+7	14	21	28	35	
+
+8	16	24	32	40	
+
+9	18	27	36	45	
+
+10	20	30	40	50	
+In [57]:
+s = "Python sample string"
+# 1 print the vowel and count the vowels 
+count = 0
+for value in s:
+    if value in 'aeiouAEIOU':
+        print(value)
+        count +=1
+print(count)
+o
+a
+e
+i
+4
+In [59]:
+l =[45,56,74,85,12,20,5,1]
+max = 0
+sec_max = 0
+for value in l:
+    if value > max and value > sec_max:
+        sec_max = max 
+        max = value
+    elif value > sec_max:
+        sec_max = value
+    else:
+        continue
+        
+print(max,sec_max)
+85 74
+In [ ]:
+> while (condition):
+    statemnts
+  else:
+In [ ]:
+
+In [ ]:
+150
+
+1 >max : 
+    max = new_num 
+    sec_max = max 
+2 max > new_num > sec_max :
+    sec_max = new_num 
+3 new_no < sec_max
+    continue
+In [60]:
+count = 1
+sum = 0
+while count <= 20:
+    sum = sum + count 
+    count+=1
+print(sum)
+210
+In [ ]:
+l = [80,70,60,50,40,30]
+
+first iteration 70  60 50  40 30 80
+second iteration 60  50 40  30 70 80 
+len(l)
+In [63]:
+l = [80,70,60,50,40,30]
+count = 1
+while(count < len(l)):
+    for index in range(len(l) -1 ):
+        if l[index] > l[index +1]:
+            l[index],l[index +1] = l[index +1],l[index]
+    count+=1
+print(l)
+[30, 40, 50, 60, 70, 80]
+In [65]:
+l = [80,70,60,50,40,30]
+count = 1
+while(count < len(l)):
+    for index,value in enumerate(l[0:-1]):
+        if l[index] > l[index +1]:
+            l[index],l[index +1] = l[index +1],l[index]
+    count+=1
+print(l)
+[30, 40, 50, 60, 70, 80]
+In [64]:
+# 0,1,1,2,3,4,......
+first_num = 0
+sec_num = 1
+
+count = 0
+while count <20:
+    next_val = first_num + sec_num
+    print(next_val)
+    first_num,sec_num = sec_num,next_val
+    count+=1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+1597
+2584
+4181
+6765
+10946
+In [ ]:
+syntax : for and while 
+optional else 
+range 
+enumerate 
+break 
+continue
+In [ ]:
+prime number
