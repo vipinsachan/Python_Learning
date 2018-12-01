@@ -1,0 +1,49 @@
+In [1]:
+import random
+In [11]:
+print(random.random())
+0.5862471454949219
+In [23]:
+l = [1,2,3,4,5,6]
+print(random.choice(l))
+2
+In [63]:
+print(random.randint(10,13))
+print(random.randrange(10,13))
+print(random.uniform(10,50))
+12
+10
+13.293666239700341
+In [ ]:
+8 char long default password 
+
+1 upper case 
+1 lower case 
+1 special 
+5 digits
+In [ ]:
+ord 
+chr
+In [145]:
+upper = chr(random.randint(ord('A'),ord('Z')))
+lower = chr(random.randint(ord('a'),ord('z')))
+l = ['!','@','#','$','&']
+special =  random.choice(l)
+digit = random.randint(10000,99999)
+
+password = upper+lower+special+str(digit)
+# print(password)
+
+l2 = random.sample(password,8)
+# print(l2)
+
+password2 = ("").join(l2)
+print(password2)
+3hT543#3
+In [ ]:
+
+In [148]:
+
+150
+10
+50

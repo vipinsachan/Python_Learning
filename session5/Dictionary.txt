@@ -1,0 +1,324 @@
+In [ ]:
+list:
+    append("Python") 
+    extend([100])
+    insert 
+    
+update :
+    l[index] = new_value 
+    
+delete :
+    pop 
+    remove 
+    clear 
+    del
+In [ ]:
+index 
+count
+Dict
+d = {'id':123,"name":"abc}
+hashing
+unordered => not support indexing and slicing
+mutable => add update and delete
+all the keys in the dict should be unique
+all the keys should be immutable => str , int ,float ,tuple
+In [ ]:
+l = [10,20,30,40,50]
+d = {'id':123,"name":"abc}
+d = {(1,1):123,(2,2):"abc},
+     
+hash(id) => hash id
+hash(name) => hash id 
+     
+Hash table 
+id key ref
+O(1)
+In [22]:
+d = {"id":101,"name":"ABC","dept":"HR","salary":45000,"name":"XYZ"}
+print(d['name'])
+# print(d['ABC'])
+XYZ
+In [17]:
+print(d.get('age',-1))
+-1
+In [23]:
+print(d.setdefault("age",25))
+print(d)
+25
+{'id': 101, 'name': 'XYZ', 'dept': 'HR', 'salary': 45000, 'age': 25}
+In [24]:
+d['contact']=7123456789
+print(d)
+{'id': 101, 'name': 'XYZ', 'dept': 'HR', 'salary': 45000, 'age': 25, 'contact': 7123456789}
+In [25]:
+d['contact']= 8888888888
+print(d)
+{'id': 101, 'name': 'XYZ', 'dept': 'HR', 'salary': 45000, 'age': 25, 'contact': 8888888888}
+In [ ]:
+{'a':97,'b':98,'c':99.......'z':122}
+In [ ]:
+ord('a') => 97 
+chr(97) => 'a'
+In [27]:
+d = {}
+for value in range(97,123):
+    d[chr(value)] = value
+#     d.setdefault(chr(value),value)
+print(d)
+{'a': 97, 'b': 98, 'c': 99, 'd': 100, 'e': 101, 'f': 102, 'g': 103, 'h': 104, 'i': 105, 'j': 106, 'k': 107, 'l': 108, 'm': 109, 'n': 110, 'o': 111, 'p': 112, 'q': 113, 'r': 114, 's': 115, 't': 116, 'u': 117, 'v': 118, 'w': 119, 'x': 120, 'y': 121, 'z': 122}
+In [31]:
+l1 = [10,20,30,40,50,60]
+l2 = [100,200,300,400,500]
+l4 = [1,2,3,4]
+l3 = list(zip(l1,l2,l4))
+print(l3)
+[(10, 100, 1), (20, 200, 2), (30, 300, 3), (40, 400, 4)]
+In [40]:
+l = [10,20,45,11,24,35,25,45,11,1]
+# {(1,10):1,(11,20):2,(21,30):1.....(91,10):0}
+# 1,11,21,31,41,51..... 91 range(1,92,10)
+# 10,20,30,40...........100 range(10,101,10)
+
+d = {}
+for key in zip(range(1,92,10),range(10,101,10)):
+    d.setdefault(key,0)
+# print(d)
+for num in l:
+    for key in d:
+        if num >= key[0] and num <= key[1]:
+            d[key]= d[key] + 1
+print(d)
+{(1, 10): 2, (11, 20): 3, (21, 30): 2, (31, 40): 1, (41, 50): 2, (51, 60): 0, (61, 70): 0, (71, 80): 0, (81, 90): 0, (91, 100): 0}
+In [42]:
+d = {"id":101,"name":"ABC","dept":"HR","salary":45000}
+
+d.setdefault("name","XYZ")
+print(d)
+d['name'] ="XYZ"
+print(d)
+{'id': 101, 'name': 'ABC', 'dept': 'HR', 'salary': 45000}
+{'id': 101, 'name': 'XYZ', 'dept': 'HR', 'salary': 45000}
+In [53]:
+d = {"id":101,"name":"ABC","dept":"HR","salary":45000}
+
+# print(d.keys())
+# print(d.values())
+# print(d.items())
+
+for k,v in d.items():
+    print(k,v)
+id 101
+name ABC
+dept HR
+salary 45000
+In [ ]:
+d = {"maths":40,"eng":70,"science":25,"history":30}
+passmarks = 40
+In [ ]:
+pop => removes the specified key and returns the value 
+popitem => remove the lasst key and value pair(< 3.6) and returns key and value tuple 
+clear => del all key and value pair  
+del : del dict ref
+In [58]:
+d = {"id":101,"name":"ABC","dept":"HR","salary":45000}
+r = d.popitem()
+print(d,r)
+
+r = d.pop("name")
+print(d,r)
+
+d.clear()
+print(d)
+del d
+print(d)
+{'id': 101, 'name': 'ABC', 'dept': 'HR'} ('salary', 45000)
+{'id': 101, 'dept': 'HR'} ABC
+{}
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-58-20bf10fd965b> in <module>()
+      9 print(d)
+     10 del d
+---> 11 print(d)
+
+NameError: name 'd' is not defined
+In [67]:
+d1 = {1:1,2:4,3:9}
+d2 = {4:16,5:25}
+
+# print(dir(list))
+
+# d1.update(d2)
+# print(d1)
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+In [62]:
+l1 = [1,2,3,4,5]
+l2 = [1,4,9,16,25]
+d = dict(zip(l1,l2))
+print(d)
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+In [65]:
+l1 = [1,2,3,4,5]
+d = dict.fromkeys(l1,0)
+print(d)
+{1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+In [ ]:
+Add:
+    setdefault 
+    d[key] = value 
+update :
+    d[key] = new value 
+    
+delete :
+    pop
+    popitem 
+    clear 
+    del
+Set
+In [ ]:
+> - {10:None,20:None,30:None}
+> - all the elements in set should be unique 
+> - all the elements in sets should be immutable int,float,str,tuple
+> - mutable add upadte and delete 
+> - unordered => no indexing and slicing
+In [ ]:
+s1 = {10,20,30,40,50}
+s2 = {40,50,60,70,80}
+
+s1 union s2 = {10,20,30,40,50,60,70,80}
+
+s1 intersection s2 = {40,50}
+
+s1 difference s2 = {10,20,30}
+s2 difference s1 = {60,70,80}
+
+s1  symmetric difference s2 = {10,20,30,60,70,80}
+
+s3 = {10,20}
+
+s3 is subset of s1 
+s1 is superset of s3
+In [69]:
+s = set()
+print(type(s))
+<class 'set'>
+In [3]:
+s1 = {10,20,30,40,50,60}
+s2 = {40,50,60,70,80,90}
+# s1.add(80)
+# print(s1)
+In [74]:
+s3 = s1.union(s2)
+print(s3)
+{70, 40, 10, 80, 50, 20, 90, 60, 30}
+In [2]:
+print(s1)
+s1.update(s2)
+print(s1)
+{40, 10, 50, 20, 60, 30}
+{70, 40, 10, 80, 50, 20, 90, 60, 30}
+In [75]:
+s4 = s1.intersection(s2)
+print(s4)
+{40, 50, 60}
+In [2]:
+print(s1)
+s1.intersection_update(s2)
+print(s1)
+{40, 10, 50, 20, 60, 30}
+{40, 50, 60}
+In [77]:
+s4 = s1.difference(s2)
+print(s4)
+s4 = s2.difference(s1)
+print(s4)
+{10, 20, 30}
+{80, 90, 70}
+In [4]:
+print(s1)
+s1.difference_update(s2)
+print(s1)
+{40, 10, 50, 20, 60, 30}
+{10, 20, 30}
+In [78]:
+s4 = s1.symmetric_difference(s2)
+print(s4)
+{80, 10, 20, 70, 90, 30}
+In [8]:
+s1 = {10,20,30,40,50,60}
+s2 = {40,50,60,70,80,90}
+s3 = {10,20}
+print(s3.issubset(s1))
+print(s1.issuperset(s3))
+True
+True
+In [11]:
+l1 = [1,2,10,14,10,20,25,65,65]
+l2 = [100,200,10,14,15,20,24,10]
+
+s1 = set(l1)
+s2 = set(l2)
+s3 = s1.union(s2)
+l3 = sorted(s3)
+print(l3)
+[1, 2, 10, 14, 15, 20, 24, 25, 65, 100, 200]
+In [ ]:
+l = [10,20,30]
+s = set(l)
+l1 = list(s)
+In [ ]:
+delete :
+    pop
+    remove 
+    discard 
+    clear 
+    del
+In [23]:
+s = {10,20,30,40,50,60}
+# r = s.pop()
+# print(s,r)
+
+# s.remove(40)
+# print(s)
+
+# s.discard(200)
+# print(s)
+
+# s.clear()
+# print(s)
+
+# del s
+# print(s)
+set()
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-23-30bfbcf0809d> in <module>()
+     13 
+     14 del s
+---> 15 print(s)
+
+NameError: name 's' is not defined
+In [ ]:
+list 
+    pop 
+    remove   
+    clear 
+    del
+
+dict 
+    pop
+    popitem  
+    clear 
+    del
+set
+    pop 
+    remove 
+    discrad 
+    clear 
+    del
+In [26]:
+a = 3 + 4j
+b = 5 + 6j
+
+print(a + b)
+(8+10j)
