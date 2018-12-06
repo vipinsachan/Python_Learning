@@ -1,0 +1,274 @@
+In [ ]:
+fun call 
+fun def
+In [1]:
+s = "Python sample string"
+print(s.index("Python"))
+0
+In [15]:
+def add(num1,num2):
+    print(num1,num2)
+    num3 = num1 + num2
+    return num3,num1,num2
+
+a,b,c = add(10,20)
+print(a)
+
+result = add("Python","Java")
+print(result)
+
+
+result = add([10,20,30,40],[1,2,3,4,5])
+print(result)
+
+# result = add("Python",10)
+# print(result)
+10 20
+30
+Python Java
+('PythonJava', 'Python', 'Java')
+[10, 20, 30, 40] [1, 2, 3, 4, 5]
+([10, 20, 30, 40, 1, 2, 3, 4, 5], [10, 20, 30, 40], [1, 2, 3, 4, 5])
+In [19]:
+def linear_search(l,key):
+    for value in l:
+        if key == value:
+            return True
+    else:        
+        return False
+
+l = [10,20,30,40,50,60]
+key = 500 
+result = linear_search(l,key)
+print(result)
+False
+In [ ]:
+Parameter Passing Techniques :
+    1. Positional args => total no of args in fun def and fun call should be same , seqential mapping of args
+    2. Default args => set a default for args and it will be if value for arg is not passed 
+    3. Variable length positional *args => tuple  => packing
+    4. Keyword args => 
+    5. Variable length keyword => packing => **kwargs  
+    6. Unpacking *l-positioanl  **d-keyword
+In [21]:
+def add(num1,num2):
+    print(num1,num2)
+    num3 = num1 + num2
+    return num3,num1,num2
+
+result = add("Python","Java")
+print(result)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-21-70a12b680de0> in <module>()
+      4     return num3,num1,num2
+      5 
+----> 6 result = add("Python","Java","C")
+      7 print(result)
+
+TypeError: add() takes 2 positional arguments but 3 were given
+In [29]:
+def add(*args):
+    return sum(args)
+#     print(num1,num2)
+#     num3 = num1 + num2
+#     return num3
+
+
+result = add(10,20,30)
+print(result)
+
+
+result = add(10,20,30,40,50,60)
+print(result)
+
+
+result = add(10,20,30,40,50)
+print(result)
+60
+210
+150
+In [25]:
+help(print)
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+
+In [36]:
+# def add_list(*args):
+#     result = []
+#     for index in range(len(args[0])):
+#         sum = 0
+#         for l in args:
+#             sum =  sum + l[index]
+#         result.append(sum)
+#     return result
+
+def add_list(*args):
+    result = []
+    
+    for l in args:
+        if result == []:
+            result.extend(l)
+        else:            
+            for index in range(len(l)):
+                result[index] = result[index] + l[index]
+
+    return result
+l1 = [1,2,3,4,5]
+l2 = [10,20,30,40,50]
+
+l3 = add_list(l1,l2)
+print(l3)
+# l4 = add_list(l1,l2,l3)
+# l5 = add_list(l1,l2,l3,l4)
+# print(l5)
+[11, 22, 33, 44, 55]
+In [41]:
+def auth(username,password):
+    if username =="abc" and password =="abc@123":
+        print("valid")
+    else:
+        print("invalid")
+        
+auth("abc","abc@123")
+auth(password = "abc@123",username = "abc")
+valid
+valid
+In [45]:
+print(10,20,end = " ",sep = ", ")
+print("Hi")
+10, 20 Hi
+In [52]:
+def user_details(*args,**kwargs):
+    print(args,kwargs)
+    name = kwargs.get("name")
+    email = kwargs.get("email")
+    contact = kwargs.get("contact")
+    dob = kwargs.get("dob")
+    
+    print("{} {} {} {}".format(name,email,contact,dob))
+    
+user_details(10,20,30,40,50,name="ABC",email = "abc@gmail.com",contact = "712345678",dob = "12-12-2018")
+user_details(name="ABC",contact = "712345678",dob = "12-12-2018")
+user_details(name="ABC",email = "abc@gmail.com",dob = "12-12-2018")
+(10, 20, 30, 40, 50) {'name': 'ABC', 'email': 'abc@gmail.com', 'contact': '712345678', 'dob': '12-12-2018'}
+ABC abc@gmail.com 712345678 12-12-2018
+() {'name': 'ABC', 'contact': '712345678', 'dob': '12-12-2018'}
+ABC None 712345678 12-12-2018
+() {'name': 'ABC', 'email': 'abc@gmail.com', 'dob': '12-12-2018'}
+ABC abc@gmail.com None 12-12-2018
+In [58]:
+def printVal(num1,num2,num3):
+    print(num1,num2,num3)
+    
+l = [10,20,30]
+printVal(*l)
+
+d = {"num3":10,"num2":20,"num1":30}
+printVal(**d)
+10 20 30
+num3 num2 num1
+In [1]:
+def printVal():
+    global num1
+    print("Inside fun call",num1)
+    num1 = 200
+    print("after chaning the value",num1)
+    
+num1 = 100
+printVal()
+print("After fun call",num1)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-1-2c5500cbc5ff> in <module>()
+      6 
+      7 # num1 = 100
+----> 8 printVal()
+      9 print("After fun call",num1)
+
+<ipython-input-1-2c5500cbc5ff> in printVal()
+      1 def printVal():
+      2     global num1
+----> 3     print("Inside fun call",num1)
+      4     num1 = 200
+      5     print("after chaning the value",num1)
+
+NameError: name 'num1' is not defined
+In [ ]:
+factorial(5) = 5 * 4!
+               5 * 4 * 3!
+               5 * 4 * 3 * 2 !
+               5 * 4 * 3 * 2 * 1 !
+               5 * 4 * 3 * 2 * 1
+In [2]:
+def fact(num):
+    if num == 1:
+        return 1
+    else:
+        return num * fact(num -1)
+
+print(fact(5))
+120
+In [ ]:
+fact(5) = >return 5 * fact(4) => 5 * 24 = 120 
+               return 4 * fact(3) = 4 * 6 = 24 
+                 return 3 * fact(2) = 3 * 2 =>6
+                    return 2 * fact(1) = 2 * 1 = 2
+                     return 1
+In [ ]:
+l = [10,15,20,25,40,45]
+key = 40
+
+1 mid = len(l) / 2 
+        mid = 25 key = 40 
+        1 if key == l[mid] 
+              return True 
+        2 if key > mid 
+        
+        3 key < mid 
+           l [ 40,45] key =40
+                mid = 45  45 == 40 
+                
+                if key > mid 
+                
+                if key < mid 
+                    [40]
+                    mid 1 / 2 = 0
+                    40 == 40 True
+In [15]:
+def binary_search(l,key):
+    
+    if not l:
+        return False
+    else:        
+        mid = len(l) // 2
+        if key == l[mid]:
+            return True
+        elif key < l[mid]:
+            return binary_search(l[0:mid],key)
+        else:
+            return binary_search(l[mid+1:],key)
+
+l = [10,15,20,25,40,45]
+key = 100
+
+print(binary_search(l,key))
+False
+In [9]:
+bs(l,40)
+    bs([40,45],40)
+        bs([40],40)
+           return true
+  File "<ipython-input-9-8149d4eca7ba>", line 2
+    bs([40,45],40)
+    ^
+IndentationError: unexpected indent
